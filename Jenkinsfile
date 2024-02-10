@@ -17,12 +17,15 @@ pipeline{
             }
         }
         stage('SCM-Checkout')
-        steps{
-            script
-            {
-                git branch: 'CBCOPS-4000', credentialsId: 'git-private-token', url: 'https://github.com/big-devops/complete-prodcution-e2e-pipeline.git'
+        {
+                steps{
+                    script
+                    {
+                        git branch: 'CBCOPS-4000', credentialsId: 'git-private-token', url: 'https://github.com/big-devops/complete-prodcution-e2e-pipeline.git'
+                    }
             }
         }
+        
     }
     
 }
