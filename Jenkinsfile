@@ -59,6 +59,20 @@ pipeline{
                 }
             }
         }
+        stage('Quality Gate')
+        {
+            options
+            {
+                timeout(time: 60, unit: 'SECONDS')
+            }
+            steps
+            {
+                def qg = waitForQualityGate()
+                if (qg.status != 'OK') {
+                  error "Pipeline aborted due to quality gate failure: ${qg.status}"
+              }
+            }
+        }
     }
     
 }
