@@ -7,6 +7,10 @@ pipeline{
             customWorkspace '/home/jenkins/project'
         }
     }
+    tools
+    {
+        maven 'mvn-3.9.6'
+    }
     stages
     {
         stage('Clear-Workspace')
@@ -25,7 +29,26 @@ pipeline{
                     }
             }
         }
-        
+        stage("Building Application")
+        {
+            steps
+            {
+                script
+                {
+                    mvn clean package
+                }
+            }
+        }
+        stage("Testing Application")
+        {
+            steps
+            {
+                script
+                {
+                    mvn test
+                }
+            }
+        }
     }
     
 }
