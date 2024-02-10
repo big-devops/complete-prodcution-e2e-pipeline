@@ -49,6 +49,16 @@ pipeline{
                 }
             }
         }
+        stage('Code Quality Analysis')
+        {
+            steps
+            {
+                withSonarQubeEnv('sonar')
+                {
+                    sh 'mvn sonar:sonar'
+                }
+            }
+        }
     }
     
 }
