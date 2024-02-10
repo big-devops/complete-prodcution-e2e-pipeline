@@ -35,7 +35,7 @@ pipeline{
             {
                 script
                 {
-                    mvn clean package
+                   sh 'mvn clean package'
                 }
             }
         }
@@ -45,7 +45,7 @@ pipeline{
             {
                 script
                 {
-                    mvn test
+                    sh 'mvn test'
                 }
             }
         }
