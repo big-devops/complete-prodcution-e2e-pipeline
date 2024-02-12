@@ -1,10 +1,10 @@
-FROM maven:3.8.4-openjdk-11-slim as build
+FROM maven:3.9.0-eclipse-temurin-17 as build
 WORKDIR /app
 COPY pom.xml /app/
 COPY src/ /app/
 RUN mvn clean package
 
-FROM openjdk:11-jre-slim
+FROM eclipse-tumurin:17.0.6_10-jdk
 WORKDIR /app
 COPY --from=build /app/target/demoapp.jar /app/
 VOLUME [ "/app" ]
