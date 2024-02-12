@@ -4,7 +4,7 @@ COPY pom.xml /app/
 COPY src/ /app/
 RUN mvn clean package
 
-FROM eclipse-tumurin:17.0.6_10-jdk
+FROM eclipse-temurin:17.0.6_10-jdk
 WORKDIR /app
 COPY --from=build /app/target/demoapp.jar /app/
 VOLUME [ "/app" ]
