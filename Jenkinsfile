@@ -96,7 +96,7 @@ pipeline{
                     //{
                         docker_image = docker.build("${IMAGE_NAME}") // This is repo
                     //}
-                    withDockerRegistry(credentialsId: '${DOCKER_CRED}') 
+                    withDockerRegistry(credentialsId: "${DOCKER_CRED}") 
                     {
                         docker_image.push("${IMAGE_TAG}") // This is repo
                     }
