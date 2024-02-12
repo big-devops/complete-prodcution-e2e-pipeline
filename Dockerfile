@@ -2,7 +2,7 @@ FROM maven:3.8.4-openjdk-11-slim as build
 WORKDIR /app
 COPY pom.xml /app/
 COPY src/ /app/
-RUN mvn clean package -DskipTests
+RUN mvn clean package
 
 FROM openjdk:11-jre-slim
 WORKDIR /app
