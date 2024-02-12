@@ -13,7 +13,7 @@ pipeline{
     }
     environment
     {
-        APP_NAME = "CBCAPP"
+        APP_NAME = "cbcapp"
         REL = "1.0.0"
         DOCKER_USER = "uriyapraba"
         DOCKER_CRED = "docker-token"
