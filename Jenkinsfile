@@ -11,6 +11,15 @@ pipeline{
     {
         maven 'mvn-3.9.6'
     }
+    environment
+    {
+        APP_NAME = "CBCAPP"
+        REL = "1.0.0"
+        DOCKER_USER = "uriyapraba"
+        DOCKER_CRED = "docker-token"
+        IMAGE_NAME = "${DOCKER_USER}" + "/" "${APP_NAME}"
+        IMAGE_TAG = "${REL}-${BUILD_NUMBER}"
+    }
     stages
     {
         stage('Clear-Workspace')
@@ -75,6 +84,24 @@ pipeline{
               }
                 }
               
+            }
+        }
+        stage('Build and Push docker image')
+        {
+            steps
+            {
+                script
+                {
+                    //withDockerRegistry(credentialsId: 'DOCKER_CRED') 
+                    //{
+                        docker_image = docker.build("${IMAGE_NAME}") // This is repo
+                    //}
+                    withDockerRegistry(credentialsId: 'DOCKER_CRED') 
+                    {
+                        docker_image.push("${IMAGE_TAG}") // This is repo
+                    }
+
+                }
             }
         }
     }
