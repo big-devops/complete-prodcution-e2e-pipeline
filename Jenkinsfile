@@ -117,12 +117,12 @@ pipeline{
                 {
                     // Define environment variables to pass to the downstream job
                     def envVar = [
-                        key: "${IMAGE_TAG}",
-                        value: IMAGE_NAME
+                        key: 'IMAGE_TAG',
+                        //value: IMAGE_NAME
                     ]
 
                     // Trigger another job named 'AnotherPipelineJob' with environment variables
-                    build job: 'complete-e2e-deployment', parameters: [], env: "${IMAGE_TAG}", wait: true
+                    build job: 'complete-e2e-deployment', parameters: [], env: envVar, wait: true
                 }
 
             }
