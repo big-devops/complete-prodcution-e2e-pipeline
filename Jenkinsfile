@@ -117,8 +117,8 @@ pipeline{
                 {
                     // Define environment variables to pass to the downstream job
                     def envVar = [
-                        key: '${IMAGE_NAME}',
-                        value: ${IMAGE_NAME}
+                        key: 'IMAGE_NAME',
+                        value: IMAGE_NAME
                     ]
 
                     // Trigger another job named 'AnotherPipelineJob' with environment variables
