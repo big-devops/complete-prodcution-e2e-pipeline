@@ -117,7 +117,7 @@ pipeline{
                 {
                     // Define environment variables to pass to the downstream job
                     def envVar = [
-                        key: 'IMAGE_NAME',
+                        key: "${IMAGE_TAG}",
                         value: IMAGE_NAME
                     ]
 
