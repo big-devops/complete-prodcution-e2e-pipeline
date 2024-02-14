@@ -122,7 +122,7 @@ pipeline{
                     ]
 
                     // Trigger another job named 'AnotherPipelineJob' with environment variables
-                    build job: 'complete-e2e-deployment', parameters: [], env: envVar, wait: true
+                    build job: 'complete-e2e-deployment', parameters: [], env: "${IMAGE_TAG}", wait: true
                 }
 
             }
