@@ -22,7 +22,7 @@ pipeline{
     }
     stages
     {
-        stage('Clear-Workspace')
+        /*stage('Clear-Workspace')
         {
             steps
             {
@@ -108,7 +108,7 @@ pipeline{
                     sh "docker image rm ${IMAGE_NAME}:latest"
                 }
             }
-        }
+        }*/
         stage("Build Downstream Job")
         {
             steps
