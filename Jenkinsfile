@@ -109,7 +109,7 @@ pipeline{
                 }
             }
         }*/
-        stage("Build Downstream Job")
+        /*stage("Build Downstream Job")
         {
             steps
             {
@@ -125,6 +125,19 @@ pipeline{
                     build job: 'complete-e2e-deployment', parameters: [], env: envVar, wait: true
                 }
 
+            }
+        }*/
+        stage('Build and trigger Downstream job')
+        {
+            steps {
+                script {
+                    // Define environment variables to pass to the downstream job
+                    def envVariables = [
+                        [$class: 'StringParameterValue', name: 'IMAGE_TAG', value: "${env.IMAGE_TAG}"]
+                    ]
+                    // Trigger the downstream job and pass environment variables as parameters
+                    build job: 'complete-e2e-deployment', parameters: envVariables, propagate: true
+                }
             }
         }
     }
