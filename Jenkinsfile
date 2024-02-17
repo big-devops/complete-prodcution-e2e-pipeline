@@ -133,7 +133,7 @@ pipeline{
                 script {
                     // Define environment variables to pass to the downstream job
                     def envVariables = [
-                        [$class: 'StringParameterValue', name: 'IMAGE_TAG', value: "${env.IMAGE_TAG}"]
+                        [$class: 'StringParameterValue', name: 'IMAGE_TAG', value: "${IMAGE_TAG}"]
                     ]
                     // Trigger the downstream job and pass environment variables as parameters
                     build job: 'complete-e2e-deployment', parameters: envVariables, propagate: true
