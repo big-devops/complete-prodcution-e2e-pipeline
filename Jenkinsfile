@@ -15,10 +15,8 @@ pipeline{
         {
             steps
             {
-                script
-                {
-                    sh "git branch: 'CBCOPS-1000', credentialsId: 'bigdevops-github-key', url: 'https://github.com/big-devops/complete-prodcution-e2e-pipeline.git'"
-                }
+                
+                sh "git branch: 'CBCOPS-1000', credentialsId: 'bigdevops-github-key', url: 'https://github.com/big-devops/complete-prodcution-e2e-pipeline.git'"
             }
         }
     }
