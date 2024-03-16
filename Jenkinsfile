@@ -6,14 +6,14 @@ pipeline{
     {
         stage("clearing WS")
         {
-            step
+            steps
             {
                 cleanWs()
             }
         }
         stage("SCM checkout")
         {
-            step
+            steps
             {
                 script
                 {
