@@ -9,7 +9,7 @@ pipeline{
     }
     stages
     {
-        /*stage("Clean WS")
+        stage("Clean WS")
         {
             steps
             {
@@ -18,7 +18,7 @@ pipeline{
                     cleanWs()
                 }
             }
-        }*/
+        }
         stage("SCM checkout")
         {
             steps
@@ -29,14 +29,14 @@ pipeline{
                 }
             }
         }
-    }
-    stage("Maven Test")
-    {
-        steps
+        stage("Maven Test")
         {
-            script
+            steps
             {
+                script
+                {
                 sh "mvn clean test"
+                }
             }
         }
     }
