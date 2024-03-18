@@ -3,6 +3,10 @@ pipeline{
     {
         label "maven"
     }
+    tools
+    {
+        maven 'maven-3.9.6'
+    }
     stages
     {
         stage("Clean WS")
