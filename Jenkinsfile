@@ -36,7 +36,7 @@ pipeline{
                 script
                 {
                     sh """
-                    source /etc/environment
+                    /usr/bin/source /etc/environment
                     mvn clean test
                     """
                 
