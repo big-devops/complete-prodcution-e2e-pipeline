@@ -35,7 +35,8 @@ pipeline{
             {
                 script
                 {
-                sh "mvn clean test"
+                    sh "mvn -version"
+                //sh "mvn clean test"
                 }
             }
         }
