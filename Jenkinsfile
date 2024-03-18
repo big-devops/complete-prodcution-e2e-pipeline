@@ -36,7 +36,7 @@ pipeline{
             {
                 script
                 {
-                    sh 'mvn clean test'
+                    sh 'mvn clean package'
                 
                 }
             }
