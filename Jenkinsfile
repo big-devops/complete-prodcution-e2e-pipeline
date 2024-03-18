@@ -6,6 +6,7 @@ pipeline{
     tools
     {
         maven 'maven-3.9.6'
+        jdk 'jdk-11'
     }
     stages
     {
@@ -35,10 +36,7 @@ pipeline{
             {
                 script
                 {
-                    sh """
-                    /usr/bin/source /etc/environment
-                    mvn clean test
-                    """
+                    sh 'mvn clean test'
                 
                 }
             }
