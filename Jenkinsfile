@@ -35,8 +35,11 @@ pipeline{
             {
                 script
                 {
-                    sh "mvn -version"
-                //sh "mvn clean test"
+                    sh """
+                    source /etc/environment
+                    mvn clean test
+                    """
+                
                 }
             }
         }
