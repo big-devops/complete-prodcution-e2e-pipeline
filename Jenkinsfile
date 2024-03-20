@@ -30,7 +30,7 @@ pipeline{
                 }
             }
         }
-        stage("Maven Test")
+        stage("Maven Build")
         {
             steps
             {
@@ -38,6 +38,26 @@ pipeline{
                 {
                     sh 'mvn clean package'
                 
+                }
+            }
+        }
+        stage("Maven Test")
+        {
+            steps
+            {
+                script
+                {
+                    sh 'mvn test'
+                
+                }
+            }
+        }
+        stage('Sonarqube code quality check')
+        {
+            steps
+            {
+                withSonarQubeEnv(credentialsId: 'sonarqube_token') {
+                    sh 'mvn sonar:sonar'
                 }
             }
         }
