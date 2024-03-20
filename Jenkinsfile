@@ -58,9 +58,12 @@ pipeline{
             {
                 script
                 {
-                    withSonarQubeEnv(installationName: 'sonar-9.9.0', credentialsId: 'sonarqube_token') {
+                    /*withSonarQubeEnv(installationName: 'sonar-9.9.0', credentialsId: 'sonarqube_token') {
                     sh 'mvn sonar:sonar'
-                    }
+                    }*/
+                    withSonarQubeEnv(credentialsId: 'sonar_token_new') {
+                        sh "mvn sonar:sonar"
+                        }
                 }
                 
             }
