@@ -56,7 +56,7 @@ pipeline{
         {
             steps
             {
-                withSonarQubeEnv(credentialsId: 'sonarqube_token') {
+                withSonarQubeEnv('sonar-9.9.0', credentialsId: 'sonarqube_token') {
                     sh 'mvn sonar:sonar'
                 }
             }
